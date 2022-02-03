@@ -29,8 +29,7 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -51,9 +50,9 @@ public class RegisterServlet extends HttpServlet {
 		try {
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con = DriverManager.getConnection(
-		 "jdbc:mysql://localhost:3306/userdetails", "root", "password");
+		 "jdbc:mysql://localhost:3306/account", "root", "password");
 		//Step 4: implement the sql query using prepared statement (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-		 PreparedStatement ps = con.prepareStatement("insert into USERDETAILS values(?,?,?,?)");
+		 PreparedStatement ps = con.prepareStatement("insert into account values(?,?,?,?)");
 		//Step 5: parse in the data retrieved from the web form request into the prepared statement accordingly
 		 ps.setString(1, n);
 		 ps.setString(2, p);
@@ -64,8 +63,7 @@ public class RegisterServlet extends HttpServlet {
 		//Step 7: check if the query had been successfully execute, return “You are successfully registered” via the response,
 		 if (i > 0){
 		PrintWriter writer = response.getWriter();
-		writer.println("<h1>" + "You have successfully registered an account!" + 
-		"</h1>");
+		writer.println("<h1>" + "You have successfully registered an account!" + "</h1>");
 		writer.close(); 
 		} 
 		}
