@@ -22,8 +22,7 @@ class="nav-link">Back to Products</a></li>
 <div class="container col-md-6">
 <div class="card">
 <div class="card-body">
-<form action="insert" method="post">
-
+<form action="NewProductServlet" method="post">
 <fieldset class="form-group">
 <label>Product Name</label> <input type="text" class="form-control" name="productName" required="required">
 </fieldset>
