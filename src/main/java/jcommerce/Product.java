@@ -11,10 +11,10 @@ public class Product {
 		this.productDescription = productDescription;
 	}
 	
-	private String productName;
-	private String productImage;
-	private String productPrice;
-	private String productDescription;
+	protected String productName;
+	protected String productImage;
+	protected String productPrice;
+	protected String productDescription;
 	
 	public String getProductName() {
 		return productName;
