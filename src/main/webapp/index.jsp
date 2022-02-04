@@ -44,8 +44,8 @@
 						<!-- For each user in the database, display their information accordingly -->
 						<tr>
 							<td><c:out value="${product.productName}" /></td>
-							<td><c:out value="${product.productImage}" /></td>
-							<td><c:out value="${product.productPrice}" /></td>
+							<td><img src="<c:out value="${product.productImage}"/>" style="width:60%"></td>
+							<td>$<c:out value="${product.productPrice}" /></td>
 							<td><c:out value="${product.productDescription}" /></td>
 
 							<!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->
