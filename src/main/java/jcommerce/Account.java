@@ -2,17 +2,17 @@ package jcommerce;
 
 public class Account {
 
-	protected String userName;
+	protected String username;
 	protected String password;
 	protected String email;
 	protected String userRole;
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -39,9 +39,9 @@ public class Account {
 		this.userRole = userRole;
 	}
 
-	public Account(String userName, String password, String email, String userRole) {
+	public Account(String username, String password, String email, String userRole) {
 		super();
-		this.userName = userName;
+		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.userRole = userRole;
