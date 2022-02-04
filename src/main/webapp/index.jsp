@@ -8,14 +8,12 @@
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
-
 
 </head>
 <body>
@@ -25,9 +23,8 @@
 			<h3 class="text-center">List of Products</h3>
 			<hr>
 			<div class="container text-left">
-				<!-- Add new user button redirects to the register.jsp page -->
-				<!--  a href="<%=request.getContextPath()%>/createProduct.jsp"
-					class="btn btn-success">Add New Product</a> -->
+				<a href="<%=request.getContextPath()%>/createProduct.jsp"
+					class="nav-link">Add a New Product</a>
 			</div>
 			<br>
 
@@ -41,7 +38,7 @@
 						<th>Actions</th>
 					</tr>
 				</thead>
-				
+
 				<tbody>
 					<c:forEach var="product" items="${listProducts}">
 						<!-- For each user in the database, display their information accordingly -->
@@ -50,12 +47,12 @@
 							<td><c:out value="${product.productImage}" /></td>
 							<td><c:out value="${product.productPrice}" /></td>
 							<td><c:out value="${product.productDescription}" /></td>
-							
+
 							<!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->
 							<td><a
-								href="edit?name=<c:out value='${product.productName}' />">Edit</a>
+								href="edit?productName=<c:out value='${product.productName}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?name=<c:out value='${product.productName}'  />">Delete</a>
+								href="delete?productName=<c:out value='${product.productName}'  />">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>

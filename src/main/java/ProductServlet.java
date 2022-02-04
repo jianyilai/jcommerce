@@ -70,29 +70,56 @@ public class ProductServlet extends HttpServlet {
 
 		// Step 4: Depending on the request servlet path, determine the function to
 		// invoke using the follow switch statement.
-		String action = request.getServletPath();
+		String action1 = request.getServletPath();
 		try {
-			switch (action) {
-			case "/insert":
-				break;
-			case "/delete":
-				break;
-			case "/edit":
-				break;
-			case "/update":
-				break;
-			default:
-				listProducts(request, response);
-				break;
+			switch (action1) {
+			case "/ProductServlet/delete":
+			deleteProduct(request, response);
+			break;
+			case "/ProductServlet/edit":
+			showEditForm(request, response);
+			break;
+			case "/ProductServlet/update":
+			updateProduct(request, response);
+			break;
+			case "/ProductServlet/dashboard":
+			listProducts(request, response);
+			break;
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
 	}
 
+	// method to update the user table base on the form data
+	private void updateProduct(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+
+		// Step 1: Retrieve value from the request
+		String oriProduct = request.getParameter("oriProduct");
+		String productName = request.getParameter("productName");
+		String productImage = request.getParameter("productImage");
+		String productPrice = request.getParameter("productPrice");
+		String productDescription = request.getParameter("productDescription");
+
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_PRODUCTS_SQL);) {
+			statement.setString(1, productName);
+			statement.setString(2, productImage);
+			statement.setString(3, productPrice);
+			statement.setString(4, productDescription);
+			statement.setString(5, oriProduct);
+			int i = statement.executeUpdate();
+		}
+
+		// Step 3: redirect back to ProductServlet
+		response.sendRedirect("http://localhost:8090/jcommerce/ProductServlet/dashboard");
+	}
+
 	// Step 5: listProducts function to connect to the database and retrieve all
-	// product
-	// records
+	// product records
+
 	private void listProducts(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Product> products = new ArrayList<>();
@@ -109,12 +136,11 @@ public class ProductServlet extends HttpServlet {
 				String productPrice = rs.getString("productPrice");
 				String productDescription = rs.getString("productDescription");
 				products.add(new Product(productName, productImage, productPrice, productDescription));
-	
-				
+
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			
+
 		}
 
 		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
@@ -122,6 +148,59 @@ public class ProductServlet extends HttpServlet {
 		request.setAttribute("listProducts", products);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 
+	}
+
+	// method to get parameter, query database for existing user data and redirect
+	// to product edit page
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		String productName = request.getParameter("productName");
+		Product existingProduct = new Product("", "", "", "");
+
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID);) {
+			preparedStatement.setString(1, productName);
+
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object
+			while (rs.next()) {
+				productName = rs.getString("productName");
+				String productImage = rs.getString("productImage");
+				String productPrice = rs.getString("productPrice");
+				String productDescription = rs.getString("productDescription");
+				existingProduct = new Product(productName, productImage, productPrice, productDescription);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set exisitngProduct to request and serve up the productEdit form
+		request.setAttribute("product", existingProduct);
+		request.getRequestDispatcher("/productEdit.jsp").forward(request, response);
+	}
+
+	// method to delete product
+	private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+
+		// Step 1: Retrieve value from the request
+		String productName = request.getParameter("productName");
+
+		// Step 2: Attempt connection with database and execute delete user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_PRODUCTS_SQL);) {
+			statement.setString(1, productName);
+			int i = statement.executeUpdate();
+		}
+
+		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
+		// url to your project name)
+		response.sendRedirect("http://localhost:8090/jcommerce/ProductServlet/dashboard");
 	}
 
 	/**

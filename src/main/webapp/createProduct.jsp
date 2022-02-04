@@ -15,7 +15,7 @@
 <a class="navbar-brand"> Add a new product </a>
 </div>
 <ul class="navbar-nav">
-<li><a href="<%=request.getContextPath()%>/index.jsp"
+<li><a href="<%=request.getContextPath()%>/ProductServlet/dashboard"
 class="nav-link">Back to Products</a></li>
 </ul>
 </nav>
