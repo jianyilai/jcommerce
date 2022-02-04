@@ -1,4 +1,5 @@
-package jcommerce;
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,15 +70,16 @@ public class locationServlet extends HttpServlet {
 		String action = request.getServletPath();
 		try {
 			switch (action) {
-			case "/insert":
+			case "/locationServlet/delete":
+				deleteLocation(request, response);
 				break;
-			case "/delete":
+			case "/locationServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/edit":
+			case "/locationServlet/update":
+				updateLocation(request, response);
 				break;
-			case "/update":
-				break;
-			default:
+			case "/locationServlet/dashboard":
 				listLocations(request, response);
 				break;
 			}
@@ -122,6 +124,72 @@ public class locationServlet extends HttpServlet {
 		// userManagement.jsp
 		request.setAttribute("listLocations", locations);
 		request.getRequestDispatcher("/view_all_shops.jsp").forward(request, response);
+	}
+
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		String shopName = request.getParameter("shopName");
+		location existingLocation = new location("", "", "", "");
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LOCATION_BY_ID);) {
+			preparedStatement.setString(1, shopName);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 4: Process the ResultSet object
+			while (rs.next()) {
+				shopName = rs.getString("shopName");
+				String shopImage = rs.getString("shopImage");
+				String shopLocation = rs.getString("shopLocation");
+				String shopDescription = rs.getString("shopDescription");
+				existingLocation = new location(shopName, shopImage, shopLocation, shopDescription);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("location", existingLocation);
+		request.getRequestDispatcher("/locationEdit.jsp").forward(request, response);
+	}
+
+	// method to update the user table base on the form data
+	private void updateLocation(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// Step 1: Retrieve value from the request
+		String oriShopName = request.getParameter("oriShopName");
+		String shopName = request.getParameter("shopName");
+		String shopImage = request.getParameter("shopImage");
+		String shopLocation = request.getParameter("shopLocation");
+		String shopDescription = request.getParameter("shopDescription");
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_LOCATION_SQL);) {
+			statement.setString(1, shopName);
+			statement.setString(2, shopImage);
+			statement.setString(3, shopLocation);
+			statement.setString(4, shopDescription);
+			statement.setString(5, oriShopName);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet (note: remember to change the url to
+		// your project name)
+		response.sendRedirect("http://localhost:8090/jcommerce/locationServlet/dashboard");
+	}
+
+	// method to delete user
+	private void deleteLocation(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// Step 1: Retrieve value from the request
+		String shopName = request.getParameter("shopName");
+		// Step 2: Attempt connection with database and execute delete user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_LOCATION_SQL);) {
+			statement.setString(1, shopName);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
+		// url to your project name)
+		response.sendRedirect("http://localhost:8090/jcommerce/locationServlet/dashboard");
 	}
 
 }
