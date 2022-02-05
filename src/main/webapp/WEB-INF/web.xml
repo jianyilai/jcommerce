@@ -13,13 +13,22 @@
   <servlet>
 <servlet-name>ProductServlet</servlet-name>
 <servlet-class>ProductServlet</servlet-class>
+   <servlet-name>ServiceServlet</servlet-name>
+ <servlet-class>ServiceServlet</servlet-class>
 </servlet>
+  
 <servlet-mapping>
 <servlet-name>ProductServlet</servlet-name>
 <url-pattern>/ProductServlet/dashboard</url-pattern>
 <url-pattern>/ProductServlet/edit</url-pattern>
 <url-pattern>/ProductServlet/update</url-pattern>
 <url-pattern>/ProductServlet/delete</url-pattern>
-</servlet-mapping>
   
+   <servlet-name>ServiceServlet</servlet-name>
+<url-pattern>/ServiceServlet/dashboard</url-pattern>
+ <url-pattern>/ServiceServlet/edit</url-pattern>
+ <url-pattern>/ServiceServlet/update</url-pattern>
+ <url-pattern>/ServiceServlet/delete</url-pattern>
+</servlet-mapping>
+ 
 </web-app>
