@@ -8,13 +8,9 @@
 </head>
 <body>
 <form action="RegisterServlet" method="post">
-	Userame: <input type="text" name="userName"><br>
+	Userame: <input type="text" name="username"><br>
 	Password: <input type="password" name="password"><br>
 	Email: <input type="text" name="email"><br>
-	UserRole: <select name="userRole"><br>
-		<option>user</option>
-		<option>admin</option>
-	</select>
 	<br>
 	<input type="submit" value="Create Account">
 </form>

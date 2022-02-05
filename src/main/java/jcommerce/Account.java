@@ -5,7 +5,6 @@ public class Account {
 	protected String username;
 	protected String password;
 	protected String email;
-	protected String userRole;
 
 	public String getUsername() {
 		return username;
@@ -31,19 +30,10 @@ public class Account {
 		this.email = email;
 	}
 
-	public String getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
-	}
-
-	public Account(String username, String password, String email, String userRole) {
+	public Account(String username, String password, String email) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.userRole = userRole;
 	}
 }

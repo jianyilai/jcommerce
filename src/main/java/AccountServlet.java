@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,12 +31,12 @@ public class AccountServlet extends HttpServlet {
 
 	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our
 	// database
-	private static final String INSERT_USERS_SQL = "INSERT INTO ACCOUNT"
-			+ " (username, password, email, userRole) VALUES " + " (?, ?, ?);";
-	private static final String SELECT_USER_BY_ID = "select username,password,email,userRole from ACCOUNT where username =?";
+	private static final String INSERT_USERS_SQL = "INSERT INTO ACCOUNT" + " (username, password, email) VALUES "
+			+ " (?, ?);";
+	private static final String SELECT_USER_BY_ID = "select username,password,email from ACCOUNT where username =?";
 	private static final String SELECT_ALL_USERS = "select * from ACCOUNT ";
 	private static final String DELETE_USERS_SQL = "delete from ACCOUNT where username = ?;";
-	private static final String UPDATE_USERS_SQL = "update ACCOUNT set username = ?,password= ?, email =?,userRole =? where username = ?;";
+	private static final String UPDATE_USERS_SQL = "update ACCOUNT set username = ?,password= ?, email =? where username = ?;";
 
 	// Step 3: Implement the getConnection method which facilitates connection to
 	// the database via JDBC
@@ -110,8 +111,7 @@ public class AccountServlet extends HttpServlet {
 				String username = rs.getString("username");
 				String password = rs.getString("password");
 				String email = rs.getString("email");
-				String userRole = rs.getString("userRole");
-				accounts.add(new Account(username, password, email, userRole));
+				accounts.add(new Account(username, password, email));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -129,7 +129,7 @@ public class AccountServlet extends HttpServlet {
 			throws SQLException, ServletException, IOException {
 		// get parameter passed in the URL
 		String username = request.getParameter("username");
-		Account existingAccount = new Account("", "", "", "");
+		Account existingAccount = new Account("", "", "");
 		// Step 1: Establishing a Connection
 		try (Connection connection = getConnection();
 				// Step 2:Create a statement using connection object
@@ -142,8 +142,7 @@ public class AccountServlet extends HttpServlet {
 				username = rs.getString("username");
 				String password = rs.getString("password");
 				String email = rs.getString("email");
-				String userRole = rs.getString("userRole");
-				existingAccount = new Account(username, password, email, userRole);
+				existingAccount = new Account(username, password, email);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -161,7 +160,6 @@ public class AccountServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		String userRole = request.getParameter("userRole");
 
 		// Step 2: Attempt connection with database and execute update user SQL query
 		try (Connection connection = getConnection();
@@ -169,8 +167,7 @@ public class AccountServlet extends HttpServlet {
 			statement.setString(1, username);
 			statement.setString(2, password);
 			statement.setString(3, email);
-			statement.setString(4, userRole);
-			statement.setString(5, oriName);
+			statement.setString(4, oriName);
 			int i = statement.executeUpdate();
 		}
 		// Step 3: redirect back to UserServlet (note: remember to change the url to
@@ -202,6 +199,7 @@ public class AccountServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+
 	}
 
 }

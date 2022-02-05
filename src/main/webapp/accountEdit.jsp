@@ -65,12 +65,6 @@ value='${account.password}' />"
 value='${account.email}' />" class="form-control"
 						name="email">
 				</fieldset>
-				<fieldset class="form-group">
-					<label> Role</label> <input type="text"
-						value="<c:out 
-value='${account.userRole}' />"
-						class="form-control" name="userRole">
-				</fieldset>
 				<button type="submit" class="btn btn-success">Save</button>
 				</form>
 			</div>

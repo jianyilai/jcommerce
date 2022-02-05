@@ -29,7 +29,6 @@
 						<th>Username</th>
 						<th>Password</th>
 						<th>Email</th>
-						<th>Role</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -41,7 +40,6 @@
 							<td><c:out value="${account.username}" /></td>
 							<td><c:out value="${account.password}" /></td>
 							<td><c:out value="${account.email}" /></td>
-							<td><c:out value="${account.userRole}" /></td>
 							<!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->
 							<td><a href="edit?username=<c:out value='${account.username}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
