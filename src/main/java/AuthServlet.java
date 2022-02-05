@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
 
 /**
  * Servlet implementation class AuthServlet
@@ -58,6 +59,9 @@ public class AuthServlet extends HttpServlet {
 			pst.setString(2, password);
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
+				// use cookie to store username to show that user is signed in
+				Cookie ck = new Cookie("username", request.getParameter("username"));
+				response.addCookie(ck);
 				out.println("You have successfully login!");
 			} else {
 				out.println("Incorrect login credentials");
@@ -68,5 +72,4 @@ public class AuthServlet extends HttpServlet {
 		} finally {
 		}
 	}
-
 }
