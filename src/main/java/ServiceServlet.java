@@ -68,17 +68,19 @@ public class ServiceServlet extends HttpServlet {
 		String action = request.getServletPath();
 		try {
 			switch (action) {
-			case "/insert":
+			case "/ServiceServlet/delete":
+				deleteService(request, response);
 				break;
-			case "/delete":
+			case "/ServiceServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/edit":
+			case "/ServiceServlet/update":
+				updateService(request, response);
 				break;
-			case "/update":
-				break;
-			default:
+			case "/ServiceServlet/dashboard":
 				listServices(request, response);
 				break;
+
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
@@ -99,29 +101,100 @@ public class ServiceServlet extends HttpServlet {
 	// Step 5: listUsers function to connect to the database and retrieve all users
 	// records
 	private void listServices(HttpServletRequest request, HttpServletResponse response)
-			   throws SQLException, IOException, ServletException
-			   {
-			   List <service> services = new ArrayList <>();
-			    try (Connection connection = getConnection();
-			    		// Step 5.1: Create a statement using connection object
-			    		 PreparedStatement preparedStatement =
-			    		connection.prepareStatement(SELECT_ALL_SERVICES);) {
-			    	// Step 5.2: Execute the query or update query
-			    	 ResultSet rs = preparedStatement.executeQuery();
-			    	// Step 5.3: Process the ResultSet object.
-			    	 while (rs.next()) {
-			    	 String serviceName = rs.getString("serviceName");
-			    	 String serviceImage = rs.getString("serviceImage");
-			    	 String servicePrice = rs.getString("servicePrice");
-			    	 String serviceDescription = rs.getString("serviceDescription");
-			    	 services.add(new service(serviceName, serviceImage, servicePrice, serviceDescription));
-			    	 }
-			    	 } catch (SQLException e) {
-			    	 System.out.println(e.getMessage());
-			    	 }
-			 // Step 5.4: Set the users list into the listUsers attribute to be pass to the serviceManagement.jsp
-			    request.setAttribute("listServices", services);
-			    request.getRequestDispatcher("/serviceManagement.jsp").forward(request, response);
-			    }
+			throws SQLException, IOException, ServletException {
+		List<service> services = new ArrayList<>();
+		try (Connection connection = getConnection();
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SERVICES);) {
+			// Step 5.2: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 5.3: Process the ResultSet object.
+			while (rs.next()) {
+				String serviceName = rs.getString("serviceName");
+				String serviceImage = rs.getString("serviceImage");
+				String servicePrice = rs.getString("servicePrice");
+				String serviceDescription = rs.getString("serviceDescription");
+				services.add(new service(serviceName, serviceImage, servicePrice, serviceDescription));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
+		// serviceManagement.jsp
+		request.setAttribute("listServices", services);
+		request.getRequestDispatcher("/serviceManagement.jsp").forward(request, response);
+	}
+
+	// method to get parameter, query database for existing user data and redirect
+	// to user edit page
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		String serviceName = request.getParameter("serviceName");
+		service existingService = new service("", "", "", "");
+
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SERVICE_BY_ID);) {
+			preparedStatement.setString(1, serviceName);
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 4: Process the ResultSet object
+			while (rs.next()) {
+				serviceName = rs.getString("serviceName");
+				String serviceImage = rs.getString("serviceImage");
+				String servicePrice = rs.getString("servicePrice");
+				String serviceDescription = rs.getString("serviceDescription");
+				existingService = new service(serviceName, serviceImage, servicePrice, serviceDescription);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("service", existingService);
+		request.getRequestDispatcher("/serviceEdit.jsp").forward(request, response);
+	}
+
+	// method to update the user table base on the form data
+	private void updateService(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+		// Step 1: Retrieve value from the request
+		String oriName = request.getParameter("oriName");
+		String serviceName = request.getParameter("serviceName");
+		String serviceImage = request.getParameter("serviceImage");
+		String servicePrice = request.getParameter("servicePrice");
+		String serviceDescription = request.getParameter("serviceDescription");
+
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_SERVICES_SQL);) {
+			statement.setString(1, serviceName);
+			statement.setString(2, serviceImage);
+			statement.setString(3, servicePrice);
+			statement.setString(4, serviceDescription);
+			statement.setString(5, oriName);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet (note: remember to change the url to
+		// your project
+		// name)
+		response.sendRedirect("http://localhost:8090/jcommerce/ServiceServlet/dashboard");
+	}
+
+	// method to delete user
+	private void deleteService(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+		// Step 1: Retrieve value from the request
+		String serviceName = request.getParameter("serviceName");// Step 2: Attempt connection with database and execute
+																// delete user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_SERVICES_SQL);) {
+			statement.setString(1, serviceName);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
+		// url to
+		// your project name)
+		response.sendRedirect("http://localhost:8090/jcommerce/ServiceServlet/dashboard");
+	}
 
 }
