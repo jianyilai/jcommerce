@@ -50,7 +50,7 @@ public class createServiceServlet extends HttpServlet {
 		try {
 			 Class.forName("com.mysql.jdbc.Driver");
 			 Connection con = DriverManager.getConnection(
-			 "jdbc:mysql://localhost:3306/servicedetails", "root", "");
+			 "jdbc:mysql://localhost:3306/products", "root", "password");
 			 PreparedStatement ps = con.prepareStatement("insert into services values(?,?,?,?)");
 			 ps.setString(1, n);
 			 ps.setString(2, p);

@@ -18,6 +18,19 @@
 </head>
 <body>
 
+	<div class="text-center">
+		<a href="<%=request.getContextPath()%>/register.jsp" class="nav-link">Register
+			an Account</a> <a href="<%=request.getContextPath()%>/login.jsp"
+			class="nav-link">Login</a> 
+			<a href="<%=request.getContextPath()%>/AccountServlet/dashboard"
+			class="nav-link">Manage Accounts</a>
+			<a
+			href="<%=request.getContextPath()%>/locationServlet/dashboard"
+			class="nav-link">View Shop Locations</a> <a
+			href="<%=request.getContextPath()%>/ServiceServlet/dashboard"
+			class="nav-link">View Services Offered</a>
+	</div>
+
 	<div class="row">
 		<div class="container">
 			<h3 class="text-center">List of Products</h3>
@@ -44,7 +57,8 @@
 						<!-- For each user in the database, display their information accordingly -->
 						<tr>
 							<td><c:out value="${product.productName}" /></td>
-							<td><img src="<c:out value="${product.productImage}"/>" style="width:60%"></td>
+							<td><img src="<c:out value="${product.productImage}"/>"
+								style="width: 60%"></td>
 							<td>$<c:out value="${product.productPrice}" /></td>
 							<td><c:out value="${product.productDescription}" /></td>
 

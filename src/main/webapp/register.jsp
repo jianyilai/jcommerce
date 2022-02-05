@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+		<ul class="navbar-nav">
+			<li><a
+				href="<%=request.getContextPath()%>/ProductServlet/dashboard"
+				class="nav-link">Back to Products</a></li>
+		</ul>
 <form action="RegisterServlet" method="post">
 	Userame: <input type="text" name="username"><br>
 	Password: <input type="password" name="password"><br>

@@ -15,6 +15,11 @@
 	<div class="row">
 		<div class="container">
 			<h3 class="text-center">List of Services</h3>
+					<ul class="navbar-nav">
+			<li><a
+				href="<%=request.getContextPath()%>/ProductServlet/dashboard"
+				class="nav-link">Back to Products</a></li>
+		</ul>
 			<hr>
 			<div class="container text-left">
 				<!-- Add new user button redirects to the register.jsp page -->
@@ -41,7 +46,8 @@
 information accordingly -->
 						<tr>
 							<td><c:out value="${service.serviceName}" /></td>
-							<td><c:out value="${service.serviceImage}" /></td>
+							<td><img src="<c:out value="${service.serviceImage}"/>"
+								style="width: 60%"></td>
 							<td><c:out value="${service.servicePrice}" /></td>
 							<td><c:out value="${service.serviceDescription}" /></td>
 							<!-- For each user in the database, Edit/Delete

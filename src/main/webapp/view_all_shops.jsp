@@ -17,6 +17,11 @@
 	<div class="row">
 		<div class="container">
 			<h3 class="text-center">List of Pet Shop Locations</h3>
+					<ul class="navbar-nav">
+			<li><a
+				href="<%=request.getContextPath()%>/ProductServlet/dashboard"
+				class="nav-link">Back to Products</a></li>
+		</ul>
 			<hr>
 			<div class="container text-left">
 				<!-- Add new user button redirects to the register.jsp page -->
@@ -41,7 +46,8 @@
 						<!-- For each user in the database, display their information accordingly -->
 						<tr>
 							<td><c:out value="${location.shopName}" /></td>
-							<td><c:out value="${location.shopImage}" /></td>
+							<td><img src="<c:out value="${location.shopImage}"/>"
+								style="width: 60%"></td>
 							<td><c:out value="${location.shopLocation}" /></td>
 							<td><c:out value="${location.shopDescription}" /></td>
 							<!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->

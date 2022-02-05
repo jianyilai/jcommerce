@@ -25,7 +25,7 @@ import javax.servlet.RequestDispatcher;
 public class AccountServlet extends HttpServlet {
 
 	// Step 1: Prepare list of variables used for database connections
-	private String jdbcURL = "jdbc:mysql://localhost:3306/account";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/products";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "password";
 
@@ -172,7 +172,7 @@ public class AccountServlet extends HttpServlet {
 		}
 		// Step 3: redirect back to UserServlet (note: remember to change the url to
 		// your project name)
-		response.sendRedirect("http://localhost:8080/jcommerce/AccountServlet/dashboard");
+		response.sendRedirect("http://localhost:8090/jcommerce/AccountServlet/dashboard");
 	}
 
 	// method to delete user
@@ -188,7 +188,7 @@ public class AccountServlet extends HttpServlet {
 		}
 		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
 		// url to your project name)
-		response.sendRedirect("http://localhost:8080/jcommerce/AccountServlet/dashboard");
+		response.sendRedirect("http://localhost:8090/jcommerce/AccountServlet/dashboard");
 	}
 
 	/**

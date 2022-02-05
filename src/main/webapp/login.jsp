@@ -15,6 +15,11 @@
 	<div class="container col-md-6">
 		<div class="card">
 			<div class="card-body">
+					<ul class="navbar-nav">
+			<li><a
+				href="<%=request.getContextPath()%>/ProductServlet/dashboard"
+				class="nav-link">Back to Products</a></li>
+		</ul>
 				<form action="AuthServlet" method="post">
 					<fieldset class="form-group">
 						<label>Username</label> <input type="text" class="form-control" name="username" required="required">

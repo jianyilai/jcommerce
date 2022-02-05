@@ -51,7 +51,7 @@ public class AuthServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/account", "root", "password");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/products", "root", "password");
 			// prepared statement for calling query
 			PreparedStatement pst = conn
 					.prepareStatement("Select username,password from account where username=? and password=?");
@@ -62,7 +62,7 @@ public class AuthServlet extends HttpServlet {
 				// use cookie to store username to show that user is signed in
 				Cookie ck = new Cookie("username", request.getParameter("username"));
 				response.addCookie(ck);
-				out.println("You have successfully login!");
+				response.sendRedirect("http://localhost:8090/jcommerce/ProductServlet/dashboard");
 			} else {
 				out.println("Incorrect login credentials");
 			}

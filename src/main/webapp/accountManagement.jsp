@@ -15,6 +15,11 @@
 	<div class="row">
 		<div class="container">
 			<h3 class="text-center">List of Users</h3>
+			<ul class="navbar-nav">
+				<li><a
+					href="<%=request.getContextPath()%>/ProductServlet/dashboard"
+					class="nav-link">Back to Products</a></li>
+			</ul>
 			<hr>
 			<div class="container text-left">
 				<!-- Add new user button redirects to the register.jsp page -->
@@ -41,7 +46,8 @@
 							<td><c:out value="${account.password}" /></td>
 							<td><c:out value="${account.email}" /></td>
 							<!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->
-							<td><a href="edit?username=<c:out value='${account.username}' />">Edit</a>
+							<td><a
+								href="edit?username=<c:out value='${account.username}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="delete?username=<c:out value='${account.username}' />">Delete</a></td>
 						</tr>
