@@ -15,44 +15,57 @@
 	</welcome-file-list>
 
 	<servlet>
-		<servlet-name>ProductServlet</servlet-name>
-		<servlet-class>ProductServlet</servlet-class>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>ProductServlet</servlet-class>
+    </servlet>
 
-		<servlet-name>ServiceServlet</servlet-name>
-		<servlet-class>ServiceServlet</servlet-class>
+    <servlet>
+        <servlet-name>ServiceServlet</servlet-name>
+        <servlet-class>ServiceServlet</servlet-class>
+    </servlet>
 
-		<servlet-name>AccountServlet</servlet-name>
-		<servlet-class>AccountServlet</servlet-class>
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>AccountServlet</servlet-class>
+    </servlet>
 
-		<servlet-name>locationServlet</servlet-name>
-		<servlet-class>locationServlet</servlet-class>
-	</servlet>
+    <servlet>
+        <servlet-name>locationServlet</servlet-name>
+        <servlet-class>locationServlet</servlet-class>
+    </servlet>
 
-	<servlet-mapping>
-		<servlet-name>ProductServlet</servlet-name>
-		<url-pattern>/ProductServlet/dashboard</url-pattern>
-		<url-pattern>/ProductServlet/edit</url-pattern>
-		<url-pattern>/ProductServlet/update</url-pattern>
-		<url-pattern>/ProductServlet/delete</url-pattern>
 
-		<servlet-name>ServiceServlet</servlet-name>
-		<url-pattern>/ServiceServlet/dashboard</url-pattern>
-		<url-pattern>/ServiceServlet/edit</url-pattern>
-		<url-pattern>/ServiceServlet/update</url-pattern>
-		<url-pattern>/ServiceServlet/delete</url-pattern>
 
-		<servlet-name>AccountServlet</servlet-name>
-		<url-pattern>/AccountServlet/dashboard</url-pattern>
-		<url-pattern>/AccountServlet/edit</url-pattern>
-		<url-pattern>/AccountServlet/update</url-pattern>
-		<url-pattern>/AccountServlet/delete</url-pattern>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/ProductServlet/dashboard</url-pattern>
+        <url-pattern>/ProductServlet/edit</url-pattern>
+        <url-pattern>/ProductServlet/update</url-pattern>
+        <url-pattern>/ProductServlet/delete</url-pattern>
+    </servlet-mapping>
 
-		<servlet-name>locationServlet</servlet-name>
-		<url-pattern>/locationServlet/dashboard</url-pattern>
-		<url-pattern>/locationServlet/edit</url-pattern>
-		<url-pattern>/locationServlet/update</url-pattern>
-		<url-pattern>/locationServlet/delete</url-pattern>
+    <servlet-mapping>
+        <servlet-name>ServiceServlet</servlet-name>
+        <url-pattern>/ServiceServlet/dashboard</url-pattern>
+        <url-pattern>/ServiceServlet/edit</url-pattern>
+        <url-pattern>/ServiceServlet/update</url-pattern>
+        <url-pattern>/ServiceServlet/delete</url-pattern>
+    </servlet-mapping>
 
-	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/AccountServlet/dashboard</url-pattern>
+        <url-pattern>/AccountServlet/edit</url-pattern>
+        <url-pattern>/AccountServlet/update</url-pattern>
+        <url-pattern>/AccountServlet/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>locationServlet</servlet-name>
+        <url-pattern>/locationServlet/dashboard</url-pattern>
+        <url-pattern>/locationServlet/edit</url-pattern>
+        <url-pattern>/locationServlet/update</url-pattern>
+        <url-pattern>/locationServlet/delete</url-pattern>
+    </servlet-mapping>
 
 </web-app>
