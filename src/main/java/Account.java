@@ -1,4 +1,3 @@
-package jcommerce;
 
 public class Account {
 
