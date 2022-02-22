@@ -48,7 +48,7 @@ Add New Service
 						value="<c:out
 value='${service.serviceName}' />" />
 				</c:if>
-				<fieldset class="form-group">
+				<fieldset class="form-group" type="hidden">
 					<label>Service Name</label> <input type="text"
 						value="<c:out
 value='${service.serviceName}' />"

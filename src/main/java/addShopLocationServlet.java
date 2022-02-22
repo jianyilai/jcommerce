@@ -59,7 +59,7 @@ public class addShopLocationServlet extends HttpServlet {
 		// dashboard
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/products", "root", "password");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jcommerce", "root", "");
 
 			PreparedStatement ps = con.prepareStatement("insert into SHOP_LOCATION values(?,?,?,?)");
 			// Step 5: parse in the data retrieved from the web form request into the

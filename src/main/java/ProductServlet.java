@@ -24,9 +24,9 @@ public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// Step 1: Prepare list of variables used for database connections
-	private String jdbcURL = "jdbc:mysql://localhost:8090/products";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/jcommerce";
 	private String jdbcUsername = "root";
-	private String jdbcPassword = "password";
+	private String jdbcPassword = "";
 
 	// Step 2: Prepare list of SQL prepared statements to perform CRUD
 	private static final String INSERT_PRODUCTS_SQL = "INSERT INTO PRODUCTS"

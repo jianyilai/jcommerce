@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jcommerce.Account;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,9 +24,9 @@ import javax.servlet.RequestDispatcher;
 public class AccountServlet extends HttpServlet {
 
 	// Step 1: Prepare list of variables used for database connections
-	private String jdbcURL = "jdbc:mysql://localhost:3306/products";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/jcommerce";
 	private String jdbcUsername = "root";
-	private String jdbcPassword = "password";
+	private String jdbcPassword = "";
 
 	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our
 	// database
