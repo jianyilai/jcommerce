@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List of Products</title>
+<title>List of Pet Products</title>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
