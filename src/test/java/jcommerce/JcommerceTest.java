@@ -12,6 +12,7 @@ public class JcommerceTest {
   //declare Selenium WebDriver
   private WebDriver webDriver;		
   
+  // to ensure the website loaded is the one needed to be checked
   @Test
   public void checkTitle() {
 	  //Loads website as a new page
@@ -20,10 +21,44 @@ public class JcommerceTest {
 	  //Assert the title to check that the page loaded is the correct one
 	  Assert.assertEquals(webDriver.getTitle(), "List of Products");
 	  
-	  System.out.println("title: "+webDriver.getTitle());
+	  System.out.println("page title: "+webDriver.getTitle());
   }
   
+  @Test
+  public void submitName() {
+	  //Loads website as a new page
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
+	  
+	  //Check the values to be submitted
+	  webDriver.findElement(By.xpath("//input[@name='productName']")).submit();
+  }
   
+  @Test
+  public void submitPrice() {
+	  //Loads website as a new page
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
+	  
+	  //Check the values to be submitted
+	  webDriver.findElement(By.xpath("//input[@name='productPrice']")).submit();
+  }
+  
+  @Test
+  public void submitImage() {
+	  //Loads website as a new page
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
+	  
+	  //Check the values to be submitted
+	  webDriver.findElement(By.xpath("//input[@name='productImage']")).submit();
+  }
+  
+  @Test
+  public void submitDescription() {
+	  //Loads website as a new page
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
+	  
+	  //Check the values to be submitted
+	  webDriver.findElement(By.xpath("//input[@name='productDescription']")).submit();
+  }
   
   @BeforeTest
   public void beforeTest() {
