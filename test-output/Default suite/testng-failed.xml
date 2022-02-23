@@ -5,8 +5,8 @@
     <classes>
       <class name="jcommerce.JcommerceTest">
         <methods>
-          <include name="checkId"/>
           <include name="afterTest"/>
+          <include name="submit"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- jcommerce.JcommerceTest -->
