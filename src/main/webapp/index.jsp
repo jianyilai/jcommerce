@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<div class="container">
-			<h3 class="text-center">List of Products</h3>
+			<h3 class="text-center">Pet Products</h3>
 			<hr>
 			<div class="container text-left">
 				<a href="<%=request.getContextPath()%>/createProduct.jsp"
