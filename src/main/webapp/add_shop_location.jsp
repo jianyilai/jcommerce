@@ -53,17 +53,17 @@ input[type=submit]:hover {
 	<div class="container">
 		<form action="addShopLocationServlet" method="post">
 			<label for="sName">Shop Name</label> <input type="text" 
-				name="shopName"> 
+				name="shopName" id="shopName"> 
 				
 				<label for="sImage">Shop
-				Image</label><input type="text"  name="shopImage">
+				Image</label><input type="text"  name="shopImage" id="shopImage">
 				
 				<label for="sLocation">Shop
-				Location</label><input type="text" name="shopLocation">
+				Location</label><input type="text" name="shopLocation" id="shopLocation">
 				
 				
 				 <label for="sDescription">Shop Description</label>
-			<textarea name="shopDescription"
+			<textarea name="shopDescription" id="shopDescription"
 				style="height: 200px"></textarea>
 
 			<input type="submit" value="Call Servlet">
