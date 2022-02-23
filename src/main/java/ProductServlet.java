@@ -24,7 +24,7 @@ public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// Step 1: Prepare list of variables used for database connections
-	private String jdbcURL = "jdbc:mysql://localhost:8090/products";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/products";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "password";
 
@@ -66,7 +66,7 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		// Step 4: Depending on the request servlet path, determine the function to
 		// invoke using the follow switch statement.
@@ -144,7 +144,7 @@ public class ProductServlet extends HttpServlet {
 		}
 
 		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
-		// userManagement.jsp
+		// index.jsp
 		request.setAttribute("listProducts", products);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 
