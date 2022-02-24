@@ -13,7 +13,7 @@
 				class="nav-link">Back to Products</a></li>
 		</ul>
 <form action="RegisterServlet" method="post">
-	Userame: <input type="text" name="username"><br>
+	Username: <input type="text" name="username"><br>
 	Password: <input type="password" name="password"><br>
 	Email: <input type="text" name="email"><br>
 	<br>
