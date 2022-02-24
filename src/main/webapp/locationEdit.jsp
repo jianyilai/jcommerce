@@ -57,22 +57,22 @@ Add New Pet Shop Location
 				<fieldset class="form-group">
 					<label>Shop Name</label> <input type="text"
 						value="<c:out value='${location.shopName}' />" class="form-control"
-						name="shopName" required="required">
+						name="shopName" id="editSshopName" required="required">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Shop Image</label> <input type="text"
 						value="<c:out value='${location.shopImage}' />" class="form-control"
-						name="shopImage">
+						name="shopImage" id="editShopImage">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Shop Location</label> <input type="text"
 						value="<c:out value='${location.shopLocation}' />" class="form-control"
-						name="shopLocation">
+						name="shopLocation" id="editShopLocation">
 				</fieldset>
 				<fieldset class="form-group">
 					<label> Shop Description</label> <input type="text"
 						value="<c:out value='${location.shopDescription}' />" class="form-control"
-						name="shopDescription">
+						name="shopDescription" id="editShopDescription">
 				</fieldset>
 				<button type="submit" class="btn btn-success">Save</button>
 				</form>
