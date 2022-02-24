@@ -57,7 +57,7 @@ Add New Pet Shop Location
 				<fieldset class="form-group">
 					<label>Shop Name</label> <input type="text"
 						value="<c:out value='${location.shopName}' />" class="form-control"
-						name="shopName" id="editSshopName" required="required">
+						name="shopName" id="editShopName" required="required">
 				</fieldset>
 				<fieldset class="form-group">
 					<label>Shop Image</label> <input type="text"
