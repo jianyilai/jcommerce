@@ -52,20 +52,20 @@ public class NewTest {
 	  System.out.println("new title: "+webDriver.getTitle());
   }
   
-//  @Test
-//  public void createLocation() {
-//	  //Navigate the website to the create a location
-//	  webDriver.navigate().to("http://localhost:8090/jcommerce/add_shop_location.jsp");
-//	  
-//	  webDriver.findElement(By.id("shopName")).sendKeys("SH Petshop");
-//	  webDriver.findElement(By.id("shopImage")).sendKeys("https://cf.shopee.sg/file/f3046e761ebf9e090382f82eb225fb39");
-//	  webDriver.findElement(By.id("shopLocation")).sendKeys("3 Lor Bakar Batu, #03-04A, Singapore 348741");
-//	  webDriver.findElement(By.id("shopDescription")).sendKeys("SG Petshop - We are the No.1 social enterprise pet shop in Singapore. We deliver Dog Food, Cat Food, Pet Supplies, Pet Accessories, Pet Toys.");
-//	  
-//	  webDriver.findElement(By.xpath("/html/body/div/form/input[4]")).click();
-//
-//
-//  }
+  @Test
+  public void createLocation() {
+	  //Navigate the website to the create a location
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/add_shop_location.jsp");
+	  
+	  webDriver.findElement(By.id("shopName")).sendKeys("SG Petshop");
+	  webDriver.findElement(By.id("shopImage")).sendKeys("https://cf.shopee.sg/file/f3046e761ebf9e090382f82eb225fb39");
+	  webDriver.findElement(By.id("shopLocation")).sendKeys("3 Lor Bakar Batu, #03-04A, Singapore 348741");
+	  webDriver.findElement(By.id("shopDescription")).sendKeys("SG Petshop - We are the No.1 social enterprise pet shop in Singapore. We deliver Dog Food, Cat Food, Pet Supplies, Pet Accessories, Pet Toys.");
+	  
+	  webDriver.findElement(By.xpath("/html/body/div/form/input[4]")).click();
+
+
+  }
   
 //  public String generateRandomName(int length) {
 //	    char[] chars =abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -80,22 +80,37 @@ public class NewTest {
 //	    return randomString;
 //	}
   
-//  @Test
-//  public void editLocation() {
-//	  //Navigate the website to the create a location
-//	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
-//	  
-//	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[1]")).click();
-//	  
-//	  //Assert the title to check that we are indeed in the correct website
-//	  Assert.assertEquals(webDriver.getTitle(), "User Management Application");
-//	  
-//	  
-//	  webDriver.findElement(By.id("editShopName")).sendKeys("The Petshop");
-//	 
-//
-//
-//  }
+  @Test
+  public void editLocation() {
+	  //Navigate the website to the create a location
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
+	  
+	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[1]")).click();
+	  
+	  //Assert the title to check that we are indeed in the correct website
+	  Assert.assertEquals(webDriver.getTitle(), "User Management Application");
+	  
+	  webDriver.findElement(By.id("editShopName")).clear();
+	  webDriver.findElement(By.id("editShopName")).sendKeys("The Petshop");
+	  
+	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
+
+
+  }
+  
+  @Test
+  public void deleteLocation() {
+	  //Navigate the website to the create a location
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
+	  Assert.assertEquals(webDriver.getTitle(), "All Shops");
+
+	  
+	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[2]")).click();
+	  
+	  //Assert the title to check that we are indeed in the correct website
+	  
+
+  }
   
   
   
