@@ -9,7 +9,32 @@
 	<name>jcommerce</name>
 	<description>jcommerce project</description>
 
+	<properties>
+		<!-- additional dependencies -->
+		<selenium.groupId>org.seleniumhq.selenium</selenium.groupId>
+		<selenium.artifactId>selenium-java</selenium.artifactId>
+		<selenium.version>2.53.1</selenium.version>
+
+		<testng.groupId>org.testng</testng.groupId>
+		<testng.artifactId>testng</testng.artifactId>
+		<testng.version>6.9.10</testng.version>
+	</properties>
+
 	<dependencies>
+
+		<dependency>
+			<groupId>${selenium.groupId}</groupId>
+			<artifactId>${selenium.artifactId}</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${testng.groupId}</groupId>
+			<artifactId>${testng.artifactId}</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
