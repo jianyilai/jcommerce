@@ -80,22 +80,22 @@ public class NewTest {
 //	    return randomString;
 //	}
   
-  @Test
-  public void editLocation() {
-	  //Navigate the website to the create a location
-	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
-	  
-	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[1]")).click();
-	  
-	  //Assert the title to check that we are indeed in the correct website
-	  Assert.assertEquals(webDriver.getTitle(), "User Management Application");
-	  
-	  
-	  webDriver.findElement(By.id("editShopName")).sendKeys("The Petshop");
-	 
-
-
-  }
+//  @Test
+//  public void editLocation() {
+//	  //Navigate the website to the create a location
+//	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
+//	  
+//	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[1]")).click();
+//	  
+//	  //Assert the title to check that we are indeed in the correct website
+//	  Assert.assertEquals(webDriver.getTitle(), "User Management Application");
+//	  
+//	  
+//	  webDriver.findElement(By.id("editShopName")).sendKeys("The Petshop");
+//	 
+//
+//
+//  }
   
   
   
