@@ -41,5 +41,4 @@ public class location {
 	protected String shopDescription;
 	
 
-
 }

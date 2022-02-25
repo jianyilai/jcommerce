@@ -58,7 +58,6 @@ class locationCollectionTest {
 		List<location> testLc = lc.getLocation();
 		shopName = lc.findLocationByName(l1);
 		assertEquals(shopName, "Pet shop1");
-		
 	}
 	
 	@Test

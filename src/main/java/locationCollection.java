@@ -26,7 +26,6 @@ public class locationCollection {
     }
     
 
-
     public String findLocationByName(location Location) {
 
     	String locationName = Location.shopName;
