@@ -33,17 +33,8 @@ public class JcommerceTest {
 	  webDriver.findElement(By.name("productPrice")).sendKeys("99");
 	  webDriver.findElement(By.name("productDescription")).sendKeys("Reversible and washable cushion. Includes free matching bone shaped toy.");
 	  
-	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
-	  
-	  webDriver.findElement(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[5]/a[1]")).click();
-	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
-	  }
-  
-  @Test
-  public void deleteProduct() {
+	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button"));
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/ProductServlet/dashboard");
-
-	  webDriver.findElement(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[5]/a[2]")).click();
 	  }
   
   @BeforeTest
