@@ -3,7 +3,7 @@ package jcommerce;
 import org.openqa.selenium.By;
 //import necessary Selenium WebDriver classes
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
@@ -65,12 +65,12 @@ public class NewTest {
 	public void beforeTest() {
 		// Setting system properties of ChromeDriver
 		// to amend directory path base on your local file path
-		String chromeDriverDir = "C:\\Program Files (x86)\\Microsoft\\Edge\\msedgedriver.exe";
+		String chromeDriverDir = "C:\\Users\\jimmy\\Downloads\\chromedriver_win32\\chromedriver.exe";
 
-		System.setProperty("webdriver.edge.driver", chromeDriverDir);
+		System.setProperty("webdriver.chrome.driver", chromeDriverDir);
 
 		// initialize FirefoxDriver at the start of test
-		webDriver = new EdgeDriver();
+		webDriver = new ChromeDriver();
 	}
 
 	@AfterTest
