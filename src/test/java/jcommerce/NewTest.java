@@ -60,6 +60,12 @@ public class NewTest {
 		Assert.assertEquals(webDriver.getTitle(), "Products");
 		System.out.println("new title: " + webDriver.getTitle());
 	}
+	
+	@Test
+	public void deleteAccount() {
+		webDriver.navigate().to("http://localhost:8090/jcommerce/AccountServlet/dashboard");
+		webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[2]/td[4]/a[2]")).click();
+	}
 
 	@BeforeTest
 	public void beforeTest() {
