@@ -13,7 +13,7 @@ public class NewTest {
 	// declare Selenium WebDriver
 	private WebDriver webDriver;
 
-	@Test
+	@Test(priority=1)
 	public void checkTitle() {
 		// Load website as a new page
 		webDriver.navigate().to("http://localhost:8090/jcommerce/ProductServlet/dashboard");
@@ -23,7 +23,7 @@ public class NewTest {
 		System.out.println("title: " + webDriver.getTitle());
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void addAccount() {
 		// Load website as a new page
 		webDriver.navigate().to("http://localhost:8090/jcommerce/register.jsp");
@@ -39,7 +39,7 @@ public class NewTest {
 
 	}
 
-	@Test
+	@Test(priority=3)
 	public void checkLogin() {
 		// Load website as a new page
 		webDriver.navigate().to("http://localhost:8090/jcommerce/login.jsp");
@@ -61,7 +61,7 @@ public class NewTest {
 		System.out.println("new title: " + webDriver.getTitle());
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void deleteAccount() {
 		webDriver.navigate().to("http://localhost:8090/jcommerce/AccountServlet/dashboard");
 		webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[2]/td[4]/a[2]")).click();
