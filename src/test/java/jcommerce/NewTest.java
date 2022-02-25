@@ -22,7 +22,7 @@ public class NewTest {
 //	  System.out.println("id we: "+we.getAttribute("role"));
 //	  Assert.assertEquals(we.getAttribute("role"), "contentinfo");
 //  }
-  @Test
+  @Test(priority = 1)
   public void checkTitle() {
 	  //Load website as a new page
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
@@ -37,7 +37,7 @@ public class NewTest {
 	  System.out.println("new title: "+webDriver.getTitle());
   }
   
-  @Test
+  @Test(priority = 2)
   public void navigateToCreate() {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/add_shop_location.jsp");
@@ -47,12 +47,13 @@ public class NewTest {
 	  
 	  System.out.println("title: "+webDriver.getTitle());
 	  
-	  //Assert the new title to check that the title contain All Shops and the button had successfully bring us to the new page
+	  //Assert the new title to check that the title contain Add Locations
+	  //and the button had successfully bring us to the new page
 	  Assert.assertTrue(webDriver.getTitle().contains("Add Locations"));
 	  System.out.println("new title: "+webDriver.getTitle());
   }
   
-  @Test
+  @Test(priority = 3)
   public void createLocation() {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/add_shop_location.jsp");
@@ -67,20 +68,8 @@ public class NewTest {
 
   }
   
-//  public String generateRandomName(int length) {
-//	    char[] chars =abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-//	            .toCharArray();
-//	    StringBuilder sb = new StringBuilder();
-//	    Random random = new Random();
-//	    for (int i = 0; i < length; i++) {
-//	        char c = chars[random.nextInt(chars.length)];
-//	        sb.append(c);
-//	    }
-//	    String randomString = sb.toString();
-//	    return randomString;
-//	}
-  
-  @Test
+
+  @Test(priority = 4)
   public void editLocation() {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
@@ -98,7 +87,7 @@ public class NewTest {
 
   }
   
-  @Test
+  @Test(priority = 5)
   public void deleteLocation() {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
