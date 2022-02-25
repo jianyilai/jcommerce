@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "Maven 3.8.1"
+        jdk "JDK 1.8"
+    }
+
+    stages {
+        stage('Initialize'){
+            steps{
+                echo "PATH = ${M2_HOME}/bin:${PATH}"
+                echo "M2_HOME = C:\Users\nahwo\Downloads\apache-maven-3.8.2-bin\apache-maven-3.8.2"
+            }
+        }
+        stage('Build') {
+            steps {
+                dir("C:\Users\nahwo\OneDrive\Desktop\School\Y2\Sem 2\DevOps Essentials (DVOPS)\workspace2") {
+                sh 'mvn -B -DskipTests clean package'
+                }
+            
+            }
+        }
+     }
+    post {
+       always {
+          junit(
+        allowEmptyResults: true,
+        testResults: '*/test-reports/.xml'
+      )
+      }
+   } 
+}
