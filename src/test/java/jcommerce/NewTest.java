@@ -65,7 +65,7 @@ public class NewTest {
 	public void beforeTest() {
 		// Setting system properties of ChromeDriver
 		// to amend directory path base on your local file path
-		String chromeDriverDir = "C:\\Users\\jimmy\\Downloads\\chromedriver.exe";
+		String chromeDriverDir = "C:\\Program Files (x86)\\Microsoft\\Edge\\msedgedriver.exe";
 
 		System.setProperty("webdriver.edge.driver", chromeDriverDir);
 
