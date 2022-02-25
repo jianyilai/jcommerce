@@ -10,6 +10,11 @@
 	<description>jcommerce project</description>
 
 	<properties>
+		
+		<junit-jupiter.groupId>org.junit.jupiter</junit-jupiter.groupId>
+		<junit-jupiter.artifactID>junit-jupiter</junit-jupiter.artifactID>
+		<junit-jupiter.version>5.7.0</junit-jupiter.version>
+
 		<!-- additional dependencies -->
 		<selenium.groupId>org.seleniumhq.selenium</selenium.groupId>
 		<selenium.artifactId>selenium-java</selenium.artifactId>
@@ -21,6 +26,13 @@
 	</properties>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>${junit-jupiter.groupId}</groupId>
+			<artifactId>${junit-jupiter.artifactID}</artifactId>
+			<version>${junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>${selenium.groupId}</groupId>
