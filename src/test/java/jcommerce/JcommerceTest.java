@@ -23,42 +23,28 @@ public class JcommerceTest {
 	  
 	  System.out.println("page title: "+webDriver.getTitle());
   }
+      
+  @Test
+  public void checkProduct() {
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
+	  	 
+	  webDriver.findElement(By.name("productName")).sendKeys("Puppia Paloma House");
+	  webDriver.findElement(By.name("productImage")).sendKeys("https://cdn.shopify.com/s/files/1/1149/5008/products/Puppia-Paloma-House-for-Dogs-_2-Colors_-4.jpg?v=1600844945");
+	  webDriver.findElement(By.name("productPrice")).sendKeys("99");
+	  webDriver.findElement(By.name("productDescription")).sendKeys("Reversible and washable cushion. Includes free matching bone shaped toy.");
+	  
+	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
+	  
+	  webDriver.findElement(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[5]/a[1]")).click();
+	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
+	  }
   
   @Test
-  public void submitName() {
-	  //Loads website as a new page
-	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
-	  
-	  //Check the values to be submitted
-	  webDriver.findElement(By.xpath("//input[@name='productName']")).submit();
-  }
-  
-  @Test
-  public void submitPrice() {
-	  //Loads website as a new page
-	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
-	  
-	  //Check the values to be submitted
-	  webDriver.findElement(By.xpath("//input[@name='productPrice']")).submit();
-  }
-  
-  @Test
-  public void submitImage() {
-	  //Loads website as a new page
-	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
-	  
-	  //Check the values to be submitted
-	  webDriver.findElement(By.xpath("//input[@name='productImage']")).submit();
-  }
-  
-  @Test
-  public void submitDescription() {
-	  //Loads website as a new page
-	  webDriver.navigate().to("http://localhost:8090/jcommerce/createProduct.jsp");
-	  
-	  //Check the values to be submitted
-	  webDriver.findElement(By.xpath("//input[@name='productDescription']")).submit();
-  }
+  public void deleteProduct() {
+	  webDriver.navigate().to("http://localhost:8090/jcommerce/ProductServlet/dashboard");
+
+	  webDriver.findElement(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[5]/a[2]")).click();
+	  }
   
   @BeforeTest
   public void beforeTest() {
