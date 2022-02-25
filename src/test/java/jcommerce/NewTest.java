@@ -12,16 +12,7 @@ import org.testng.annotations.AfterTest;
 public class NewTest {
   //declare Selenium WebDriver
   private WebDriver webDriver;		
-  
-//  @Test
-//  public void checkId() {
-//	  //Load website as a new page
-//	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
-//	  WebElement we =  webDriver.findElement(By.id("content"));
-//	  
-//	  System.out.println("id we: "+we.getAttribute("role"));
-//	  Assert.assertEquals(we.getAttribute("role"), "contentinfo");
-//  }
+
   @Test(priority = 1)
   public void checkTitle() {
 	  //Load website as a new page
@@ -32,7 +23,8 @@ public class NewTest {
 	  
 	  System.out.println("title: "+webDriver.getTitle());
 	  
-	  //Assert the new title to check that the title contain All Shops and the button had successfully bring us to the new page
+	  //Assert the new title to check that the title contain All Shops and the button
+	  //had successfully bring us to the new page
 	  Assert.assertTrue(webDriver.getTitle().contains("All Shops"));
 	  System.out.println("new title: "+webDriver.getTitle());
   }
@@ -58,11 +50,13 @@ public class NewTest {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/add_shop_location.jsp");
 	  
+	  //input data in input boxes to create a new location
 	  webDriver.findElement(By.id("shopName")).sendKeys("SG Petshop");
 	  webDriver.findElement(By.id("shopImage")).sendKeys("https://cf.shopee.sg/file/f3046e761ebf9e090382f82eb225fb39");
 	  webDriver.findElement(By.id("shopLocation")).sendKeys("3 Lor Bakar Batu, #03-04A, Singapore 348741");
 	  webDriver.findElement(By.id("shopDescription")).sendKeys("SG Petshop - We are the No.1 social enterprise pet shop in Singapore. We deliver Dog Food, Cat Food, Pet Supplies, Pet Accessories, Pet Toys.");
 	  
+	  //click on the send to servlet button to put data into the database
 	  webDriver.findElement(By.xpath("/html/body/div/form/input[4]")).click();
 
 
@@ -74,14 +68,17 @@ public class NewTest {
 	  //Navigate the website to the create a location
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
 	  
+	  //click on the edit button to bring user to the edit page
 	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[1]")).click();
 	  
 	  //Assert the title to check that we are indeed in the correct website
 	  Assert.assertEquals(webDriver.getTitle(), "User Management Application");
 	  
+	  //clears out the previous input and input a new set of data
 	  webDriver.findElement(By.id("editShopName")).clear();
 	  webDriver.findElement(By.id("editShopName")).sendKeys("The Petshop");
 	  
+	  //click on the update button
 	  webDriver.findElement(By.xpath("/html/body/div/div/div/form/button")).click();
 
 
@@ -89,14 +86,13 @@ public class NewTest {
   
   @Test(priority = 5)
   public void deleteLocation() {
-	  //Navigate the website to the create a location
+	  //Navigate the website to the location servlet and make sure it is in the correct page
 	  webDriver.navigate().to("http://localhost:8090/jcommerce/locationServlet/dashboard");
 	  Assert.assertEquals(webDriver.getTitle(), "All Shops");
 
-	  
+	  // click on the delete button
 	  webDriver.findElement(By.xpath("/html/body/div/div/table/tbody/tr[3]/td[5]/a[2]")).click();
 	  
-	  //Assert the title to check that we are indeed in the correct website
 	  
 
   }
