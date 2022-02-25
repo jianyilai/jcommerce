@@ -2,36 +2,36 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-02-25T13:44:02 SGT" name="Default suite" finished-at="2022-02-25T13:44:06 SGT" duration-ms="3909">
+  <suite started-at="2022-02-25T17:40:40 SGT" name="Default suite" finished-at="2022-02-25T17:40:50 SGT" duration-ms="10793">
     <groups>
     </groups>
-    <test started-at="2022-02-25T13:44:02 SGT" name="Default test" finished-at="2022-02-25T13:44:06 SGT" duration-ms="3909">
+    <test started-at="2022-02-25T17:40:40 SGT" name="Default test" finished-at="2022-02-25T17:40:50 SGT" duration-ms="10793">
       <class name="jcommerce.NewTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:02 SGT" name="beforeTest" finished-at="2022-02-25T13:44:04 SGT" duration-ms="1491" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:40 SGT" name="beforeTest" finished-at="2022-02-25T17:40:44 SGT" duration-ms="4710" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="checkTitle()[pri:1, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:04 SGT" name="checkTitle" finished-at="2022-02-25T13:44:04 SGT" duration-ms="351" status="PASS">
+        <test-method signature="checkTitle()[pri:1, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:44 SGT" name="checkTitle" finished-at="2022-02-25T17:40:45 SGT" duration-ms="880" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkTitle -->
-        <test-method signature="navigateToCreate()[pri:2, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:04 SGT" name="navigateToCreate" finished-at="2022-02-25T13:44:04 SGT" duration-ms="224" status="PASS">
+        <test-method signature="navigateToCreate()[pri:2, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:45 SGT" name="navigateToCreate" finished-at="2022-02-25T17:40:46 SGT" duration-ms="330" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToCreate -->
-        <test-method signature="createLocation()[pri:3, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:04 SGT" name="createLocation" finished-at="2022-02-25T13:44:05 SGT" duration-ms="707" status="PASS">
+        <test-method signature="createLocation()[pri:3, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:46 SGT" name="createLocation" finished-at="2022-02-25T17:40:47 SGT" duration-ms="1676" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createLocation -->
-        <test-method signature="editLocation()[pri:4, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:05 SGT" name="editLocation" finished-at="2022-02-25T13:44:06 SGT" duration-ms="573" status="PASS">
+        <test-method signature="editLocation()[pri:4, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:47 SGT" name="editLocation" finished-at="2022-02-25T17:40:49 SGT" duration-ms="1556" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editLocation -->
-        <test-method signature="deleteLocation()[pri:5, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:06 SGT" name="deleteLocation" finished-at="2022-02-25T13:44:06 SGT" duration-ms="160" status="PASS">
+        <test-method signature="deleteLocation()[pri:5, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:49 SGT" name="deleteLocation" finished-at="2022-02-25T17:40:50 SGT" duration-ms="624" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteLocation -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:jcommerce.NewTest@609db43b]" started-at="2022-02-25T13:44:06 SGT" name="afterTest" finished-at="2022-02-25T13:44:06 SGT" duration-ms="329" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:jcommerce.NewTest@6f27a732]" started-at="2022-02-25T17:40:50 SGT" name="afterTest" finished-at="2022-02-25T17:40:50 SGT" duration-ms="910" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

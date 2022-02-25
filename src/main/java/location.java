@@ -1,5 +1,4 @@
 
-
 public class location {
 	
 
@@ -40,5 +39,7 @@ public class location {
 	protected String shopImage;
 	protected String shopLocation;
 	protected String shopDescription;
+	
+
 
 }
